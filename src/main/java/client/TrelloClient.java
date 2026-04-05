@@ -1,17 +1,19 @@
 package client;
 
-
 import config.BaseConfig;
+import config.ConfigReader;
 import io.restassured.response.Response;
-import utils.Environment;
 
 public class TrelloClient {
+
+    private final String key = ConfigReader.get("trello.key");
+    private final String token = ConfigReader.get("trello.token");
 
     public Response createCard(String listId, String name) {
 
         return BaseConfig.request()
-                .queryParam("key", Environment.KEY)
-                .queryParam("token", Environment.TOKEN)
+                .queryParam("key", key)
+                .queryParam("token", token)
                 .queryParam("idList", listId)
                 .queryParam("name", name)
                 .post("/cards");
@@ -20,8 +22,8 @@ public class TrelloClient {
     public Response updateCard(String cardId, String name) {
 
         return BaseConfig.request()
-                .queryParam("key", Environment.KEY)
-                .queryParam("token", Environment.TOKEN)
+                .queryParam("key", key)
+                .queryParam("token", token)
                 .queryParam("name", name)
                 .put("/cards/" + cardId);
     }
@@ -29,9 +31,8 @@ public class TrelloClient {
     public Response deleteCard(String cardId) {
 
         return BaseConfig.request()
-                .queryParam("key", Environment.KEY)
-                .queryParam("token", Environment.TOKEN)
+                .queryParam("key", key)
+                .queryParam("token", token)
                 .delete("/cards/" + cardId);
     }
-
 }

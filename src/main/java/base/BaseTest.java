@@ -1,5 +1,6 @@
 package base;
 
+import config.ConfigReader;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.config.HttpClientConfig;
@@ -14,7 +15,7 @@ public class BaseTest {
     @BeforeSuite
     public void setup() {
 
-        RestAssured.baseURI = "https://api.trello.com/1";
+        RestAssured.baseURI = ConfigReader.get("trello.base.url");
 
         RestAssured.config = config()
                 .httpClient(HttpClientConfig.httpClientConfig()
