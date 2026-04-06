@@ -19,17 +19,54 @@ Automatizar testes da API validando:
 
 # 🧠 Arquitetura do Projeto
 
-    src
-     ├── main
-     │   ├── base
-     │   ├── client
-     │   ├── config
-     │   ├── service
-     │   ├── utils
-     │
-     ├── test
-     │   ├── test
-         └── resources
+desafioSensediaProject
+│
+├── src
+│   ├── main
+│   │
+│   └── test
+│       ├── java
+│       │
+│       │   ├── base
+│       │   │   └── BaseTest.java
+│       │
+│       │   ├── client
+│       │   │   └── TrelloClient.java
+│       │
+│       │   ├── service
+│       │   │   └── TrelloService.java
+│       │
+│       │   ├── config
+│       │   │   ├── BaseConfig.java
+│       │   │   └── ConfigReader.java
+│       │
+│       │   ├── utils
+│       │   │   └── SchemaValidator.java
+│       │
+│       │   ├── context
+│       │   │   └── TestContext.java
+│       │
+│       │   ├── steps
+│       │   │   ├── CardSteps.java
+│       │   │   ├── BoardSteps.java
+│       │   │   ├── ListSteps.java
+│       │   │   └── CommonSteps.java
+│       │
+│       │   ├── hooks
+│       │   │   └── Hooks.java
+│       │
+│       │   └── runner
+│       │       └── CucumberRunner.java
+│
+│       └── resources
+│           ├── features
+│           │   ├── trello.feature
+│           │   └── trello-negative.feature
+│           │
+│           └── schemas
+│               └── createCardSchema.json
+│
+└── pom.xml
 
 ------------------------------------------------------------------------
 

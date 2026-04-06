@@ -1,11 +1,11 @@
 package steps;
 
-import config.ConfigReader;
 import context.TestContext;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import service.TrelloService;
+
+import static org.hamcrest.Matchers.equalTo;
 
 public class CardSteps {
 
@@ -17,31 +17,43 @@ public class CardSteps {
         this.service = new TrelloService();
     }
 
-    @Given("I create a card in To Do")
-    public void createCard() {
+    @When("I try to create card with invalid list")
+    public void createInvalidCard() {
 
-        String cardId = service.createCard(
-                ConfigReader.get("trello.list.todo")
+        context.setResponse(
+                service.createCardInvalid("invalid_list")
         );
-
-        context.setCardId(cardId);
     }
 
-    @When("I move card to Doing")
-    public void moveToDoing() {
+    @When("I delete invalid card")
+    public void deleteInvalidCard() {
 
-        service.moveToDoing(context.getCardId());
+        context.setResponse(
+                service.deleteCard("invalid_card")
+        );
     }
 
-    @When("I move card to Done")
-    public void moveToDone() {
+    @When("I move invalid card")
+    public void moveInvalidCard() {
 
-        service.moveToDone(context.getCardId());
+        context.setResponse(
+                service.moveToDoing("invalid_card")
+        );
     }
 
-    @Then("I delete the card")
-    public void deleteCard() {
+    @Then("I should receive bad request")
+    public void validateBadRequest() {
 
-        service.deleteCard(context.getCardId());
+        context.getResponse()
+                .then()
+                .statusCode(400);
+    }
+
+    @Then("I should receive not found")
+    public void validateNotFound() {
+
+        context.getResponse()
+                .then()
+                .statusCode(404);
     }
 }
