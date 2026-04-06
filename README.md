@@ -37,7 +37,7 @@ Automatizar testes da API validando:
 
 Aqui está um vídeo que demonstra o sucesso do teste:
 
-![Vídeo de Teste](https://youtu.be/eLuOTP6At8E)
+![Vídeo de Teste](https://www.youtube.com/watch?v=eLuOTP6At8E)
 
 
 # 🧱 Camadas do Framework
