@@ -10,7 +10,7 @@ Framework de automação de testes de API desenvolvido com **Java**,
 Automatizar testes da API validando:
 
 -   Criação de recursos
--   Atualização
+-   Atualização o card para coluna Doing e Done
 -   Exclusão
 -   Validação de status code
 -   Validação de contrato (Schema Validation)
@@ -28,7 +28,8 @@ Automatizar testes da API validando:
      │   ├── utils
      │
      ├── test
-     │   └── tests
+     │   ├── test
+         └── resources
 
 ------------------------------------------------------------------------
 

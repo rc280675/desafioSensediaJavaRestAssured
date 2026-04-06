@@ -19,12 +19,12 @@ public class TrelloClient {
                 .post("/cards");
     }
 
-    public Response updateCard(String cardId, String name) {
+    public Response moveCard(String cardId, String listId) {
 
         return BaseConfig.request()
                 .queryParam("key", key)
                 .queryParam("token", token)
-                .queryParam("name", name)
+                .queryParam("idList", listId)
                 .put("/cards/" + cardId);
     }
 

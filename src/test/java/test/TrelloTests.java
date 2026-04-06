@@ -10,12 +10,13 @@ public class TrelloTests extends BaseTest {
     TrelloService service = new TrelloService();
 
     @Test
-    public void shouldCreateUpdateDeleteCard() {
+    public void shouldCreateMoveAndDeleteCard() {
 
-        String listId = ConfigReader.get("trello.list.todo");
+        String listTodo = ConfigReader.get("trello.list.todo");
 
-        String cardId = service.createCard(listId);
-        service.updateCard(cardId);
+        String cardId = service.createCard(listTodo);
+        service.moveToDoing(cardId);
+        service.moveToDone(cardId);
         service.deleteCard(cardId);
     }
 }
