@@ -33,6 +33,13 @@ Automatizar testes da API validando:
 
 ------------------------------------------------------------------------
 
+## Sucesso do Teste
+
+Aqui está um vídeo que demonstra o sucesso do teste:
+
+![Vídeo de Teste](https://youtu.be/eLuOTP6At8E)
+
+
 # 🧱 Camadas do Framework
 
 ## Base Layer
